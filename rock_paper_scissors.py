@@ -6,8 +6,12 @@ from random import randint
 from time import sleep
 
 # Constants
-
+BARS=20
 OPTIONS=['Rock','Paper','Scissors']
+
+def bars():
+    print('-'*BARS)
+
 
 # Function for the computer pick
 def computerpick():
@@ -15,19 +19,22 @@ def computerpick():
 
 # Print options and ask for player option
 for i in OPTIONS:
-    print(OPTIONS.index(i),':',i)
+    print(OPTIONS.index(i)+1,':',i)
 
 opt=input('Pick your option (1-3):')
 
 player=OPTIONS[int(opt)-1] 
-print('-'*10)
-sleep(2)
+bars()
 print('Player pick: ',player)
+bars()
+sleep(2)
+
 
 # Computer pick
 computer=computerpick()
+bars()
 print('Computer pick: ',computer)
-print('-'*10)
+bars()
 
 # Compare picks and declare a winner
 
