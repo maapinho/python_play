@@ -22,6 +22,9 @@ RESULTTIE = 'Tie. Play again'
 def bars():
     print('-'*BARS)
 
+def emptyline():
+    print('')
+
 
 # Function for the computer pick
 def computerpick():
@@ -32,14 +35,16 @@ def computerpick():
 def winner(choice1,choice2):
     return [choice1,choice2] in WINNERLEFT
 
+# main program loop
 while True:
-
     # Print options and ask for player option
     for i in OPTIONS:
         print(OPTIONS.index(i)+1,':',i)
 
+    # Ask for the player's option
     while True:
         try:
+            emptyline()
             optstr=input('Pick your option (1-3):')
             opt=int(optstr)
             player=OPTIONS[opt-1]
@@ -49,27 +54,31 @@ while True:
         except IndexError:
             print('Wrong value. The number must be between 1 and 3 \n')
 
+    # show player's option
     bars()
     print('Your pick: ',player)
-    bars()
+    #bars()
     sleep(2)
 
 
     # Computer pick
     computer=computerpick()
-    bars()
+    #bars()
     print('Computer pick: ',computer)
     bars()
-    print('\n')
+    emptyline()
+    sleep(1)
 
     # Compare picks and declare a winner
-
+    bars()
     if computer == player:
-        print(RESULTTIE,'\n')
+        print(RESULTTIE)
     elif winner(player,computer):
-        print(RESULTWIN,'\n')
+        print(RESULTWIN)
     else:
-        print(RESULTLOSE,'\n')
-
+        print(RESULTLOSE)
+    bars()
+    sleep(2)
+    emptyline()
 
 # hmmmm...
