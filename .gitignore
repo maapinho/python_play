@@ -1,4 +1,5 @@
 *.bak
 .vscode/settings.json
 t.py
+t_.txt
 __pycache__/*
