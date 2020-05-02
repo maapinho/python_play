@@ -14,6 +14,11 @@ WINNERLEFT = [
     ['Scissors','Paper']
 ]
 
+# Result sentences
+RESULTWIN = 'You WON!'
+RESULTLOSE = 'You lost. Try one more time'
+RESULTTIE = 'Tie. Play again'
+
 def bars():
     print('-'*BARS)
 
@@ -31,9 +36,17 @@ def winner(choice1,choice2):
 for i in OPTIONS:
     print(OPTIONS.index(i)+1,':',i)
 
-opt=input('Pick your option (1-3):')
+while True:
+    try:
+        optstr=input('Pick your option (1-3):')
+        opt=int(optstr)
+        player=OPTIONS[opt-1]
+        break
+    except ValueError:
+        print('String input. The value must be a number between 1 and 3 \n')
+    except IndexError:
+        print('Wrong value. The number must be between 1 and 3 \n')
 
-player=OPTIONS[int(opt)-1] 
 bars()
 print('Player pick: ',player)
 bars()
@@ -50,11 +63,11 @@ print('\n')
 # Compare picks and declare a winner
 
 if computer == player:
-    print("Tie. Play again")
+    print(RESULTTIE,'\n')
 elif winner(player,computer):
-    print('You won!\n')
+    print(RESULTWIN,'\n')
 else:
-    print('You lost\n')
+    print(RESULTLOSE,'\n')
 
 
 # hmmmm...
