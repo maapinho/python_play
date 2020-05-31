@@ -1,3 +1,7 @@
+#!/usr/bin/python3
+
+# Randomizes simple math operations over a range if integers
+
 # To do
 # pick the range of numbers
 # Loop
@@ -6,6 +10,7 @@
 
 
 import random
+from time import sleep
 
 # Constants
 
@@ -18,7 +23,12 @@ CORRECTANSWERLIST= ["Correct Answer!",
                     "Einstein!"]
 OPERATIONS = ["product","addition", "subtraction"]
 INPUTQUESTION="What is the result of "
- 
+BANNER = '''
+***************************************************************
+This program randomizes simple math operations over a range if integers
+***************************************************************
+'''
+
 # Pick the highest number. Leave empty for default (10)
 
 # function to pick a random item from a list
@@ -26,12 +36,18 @@ INPUTQUESTION="What is the result of "
 def randomitem(inputlist):
     return inputlist[random.randint(0,len(inputlist)-1)]
 
+#banner
+print(BANNER)
+sleep(3)
+
 # Range of values for expression's input
 
 valuerange=input("Pick a range of values from 0 to 10 (default is 10): ")
 
 if valuerange=="":
     valuerange=DEFAULTRANGE
+
+
 
 ###### Pending error catching keeping within the value range of 0 to 10
 
