@@ -4,6 +4,7 @@
 
 from random import randint
 from time import sleep
+import sys
 
 # Constants
 BARS=20
@@ -45,11 +46,13 @@ while True:
     while True:
         try:
             emptyline()
-            optstr=input('Pick your option (1-3):')
+            optstr=input('Pick your option (1-3) or "q" to exit:')
             opt=int(optstr)
             player=OPTIONS[opt-1]
             break
         except ValueError:
+            if optstr=='q':   # exit the program if q is pressed
+                sys.exit('Bye')
             print('String input. The value must be a number between 1 and 3 \n')
         except IndexError:
             print('Wrong value. The number must be between 1 and 3 \n')
